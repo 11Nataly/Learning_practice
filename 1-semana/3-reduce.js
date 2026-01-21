@@ -1,0 +1,124 @@
+//🧠 EJERCICIO 1 – reduce básico (sumar capítulos)
+
+// <- esto es una lista de objetos en JS
+const capitulos = [
+  { titulo: "Madrid", contenido: "..." },
+  { titulo: "Día triste", contenido: "..." },
+  { titulo: "Dudas existenciales", contenido: "..." }
+];
+
+//Situación real
+// Quieres saber cuántos capítulos hay en total dentro de un diario.
+// Usa reduce
+// Devuelve el número total de capítulos
+// Muestra el resultado en consola
+
+//solución simple idk
+const cantidadCapitulos = capitulos.length;
+console.log("la cantidad total de capitulos es: ",cantidadCapitulos);
+
+
+// ✏️comentario: aquí no entendí cómo usar reduce para contar cada capitulo (cada objeto)
+// sin tener un número que sumar 
+const totalCapitulos = capitulos.reduce((acumulador, capitulo) => {
+    return acumulador + capitulo.titulo
+}, 0);
+console.log(totalCapitulos);
+
+//✏️comentario: reduce es la base de qué o reemplaza el uso de qué en JS 
+// supongo que reemplaza el uso del bucle for, pero no sé con qué se está combinando para mejorarlo
+
+//🧠 EJERCICIO 2 – reduce para sumar datos 
+
+const capitulos2 = [
+  { titulo: "Madrid", palabras: 350 },
+  { titulo: "Día triste", palabras: 120 },
+  { titulo: "Dudas existenciales", palabras: 500 }
+];
+
+// Cada capítulo tiene una cantidad de palabras y quieres saber:
+// 👉 cuántas palabras has escrito en total
+// Usa reduce
+// Devuelve el total de palabras escritas
+
+
+const totalPalabras = capitulos2.reduce((acumulador, palabra) => {
+    return acumulador + palabra.palabras
+}, 0);
+// aquí uso backticks o tildes invertidas
+// para usar PLANTILLAS LITERALES que me permiten 
+//escribir variables dentro de cadenas 
+console.log(`Has escrito un total de ${totalPalabras} palabras`);
+
+
+//🧠 EJERCICIO 3 – reduce para agrupar información
+
+const capitulos3 = [
+  { titulo: "Madrid", emocion: "feliz" },
+  { titulo: "Día triste", emocion: "triste" },
+  { titulo: "Cansancio", emocion: "triste" },
+  { titulo: "Logro personal", emocion: "feliz" }
+];
+
+//Situación real
+// Cada capítulo tiene una emoción principal.
+// Devuelve un objeto con el conteo de cada emocion
+
+
+//✏️comentario: aquí le puse de nombre al valor inicial "valorEmocion"
+//para diferenciarlo de la propiedad emocion
+
+const conteoEmociones = capitulos3.reduce((acumulador, valorEmocion) => {
+  // Si "existe" ya existe en el acumulador, incrementa en 1 su contador
+  if (acumulador[valorEmocion.emocion]) {
+    acumulador[valorEmocion.emocion]++;
+  } else {
+    // si no existe "existe", crea la propiedad y le pone 1
+    acumulador[valorEmocion.emocion] = 1;
+  }
+  //REPASITO: reduce
+  //Finaliza la ejecución de una función 
+  // y devuelve un valor específico al lugar donde fue llamada.
+    return acumulador; //retorna el acumulador para la siguiente iteración
+}, {}); // {} es el valor inicial en reduce: un objeto vacío
+
+console.log(conteoEmociones);
+
+//✏️comentario:
+//cómo podría hacer este código más eficiente y mostrar el resultado más legible?
+
+//🧠 EJERCICIO 4 – reduce para generar un índice
+
+const capitulos4 = [
+  { titulo: "Madrid" },
+  { titulo: "Día triste" },
+  { titulo: "Dudas existenciales" }
+];
+
+// Situación real
+// Quieres generar automáticamente el índice del diario.
+
+const indiceCapitulos = capitulos4.reduce((acum,tituloCap, index) => {
+  const titulos = tituloCap.titulo;
+
+  acum.push({
+    numCap: index + 1,
+    titulos
+  });
+  return acum;
+}, []);
+
+console.log(indiceCapitulos);
+
+
+  const numCapString = numCap.toString();
+  const titulosString = titulos.toString();
+  const indice = numCapString + "." + titulosString
+
+
+
+
+
+//✏️comentario:
+//no entiendo bien cómo funciona la sintaxis de reduce, 
+// no entiendo qué es el acumulador y qué valores puede tener o cómo se puede modificar

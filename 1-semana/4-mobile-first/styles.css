@@ -1,0 +1,90 @@
+
+/* 🧠 EJERCICIO 5 – UX consciente (pequeño pero clave)
+Haz 1 mejora visual, por ejemplo:
+hover en .book
+sombra suave
+cambio de cursor
+animación simple */
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, sans-serif;
+}
+
+.bookshelf {
+  padding: 1rem;
+  cursor: help;
+}
+
+/* //1fr: "1 fracción" - ocupa todo el espacio disponible
+  //Para móviles: 1 columna, los libros se apilan verticalmente */
+.books {
+  display: grid; /* Activa Grid Layout */
+  grid-template-columns: 1fr;
+  gap: 1rem; /* Espacio entre elementos grid */
+}
+
+.book {
+  padding: 1rem;
+  background-color: #a36417;
+  border-radius: 8px;
+  text-align: center;
+  color: #b6a010;
+  box-shadow: 5px 10px 8px #624714;
+  cursor: pointer;
+  font-weight: bold;
+}
+/* estilos al pasar el cursor */
+
+.book:hover {
+    background-color: #c78c1f;
+    transform: scale(1.05); /*un poquito más grande*/
+}
+
+/* 
+ajuste para pantallas grandes 
+*/
+
+/*"Cuando el ancho de la pantalla sea MÍNIMO 768px o más"
+Aplica los estilos dentro de las llaves { ... }
+768px es un punto de quiebre típico para tablets*/
+/* //Cambia el layout de 1 columna a 3 columnas
+//repeat(3, 1fr): crea 3 columnas, cada una de 1fr (igual tamaño) */
+@media (min-width: 768px) {
+    .books {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+/* 🧠 EJERCICIO 4 – Pensamiento crítico (obligatorio)
+
+¿Qué pasaría si empiezo diseñando desktop primero?
+tendría que pensar constantemente en cómo "recortar" cada item para pantallas grandes
+lo que haría el diseño más díficil de adaptar
+¿Por qué min-width es preferido sobre max-width?
+por qué empieza a afectar desde esa medida de pixeles 
+(en nuestro caso desde la medida habitual para tablets)
+max-width haría más largo el código dandole los tamaños a cada situación
+¿Qué parte del diseño debería adaptarse primero al crecer la pantalla?
+primero el diseño en tablets, luego desktops
+¿Este layout se podría reutilizar en otro proyecto? ¿cuál?
+en muchos, sirve para catalogos de productos de un e-commerce, 
+fotos en apps de fotos
+etc, que se adapten elementos en columnas sirve para muchas cosas
+*/
+
+
+
+/* 
+🧠 COMENTARIO FINAL (hábito clave) 
+/* 
+Hoy entendí que mobile first significa: definir primero el diseño
+para moviles y luego para pantallas grandes (tablets,deskstops)
+Lo que más me costó fue: recordar cómo hacer ajustes en css de estilos
+Mañana debo aprender: Flexbox + lógica visual
+*/
+

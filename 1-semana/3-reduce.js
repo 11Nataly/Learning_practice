@@ -25,8 +25,11 @@ const totalCapitulos = capitulos.reduce((acumulador, capitulo) => {
 }, 0);
 console.log(totalCapitulos);
 
-//✏️comentario: reduce es la base de qué o reemplaza el uso de qué en JS 
-// supongo que reemplaza el uso del bucle for, pero no sé con qué se está combinando para mejorarlo
+// ✅ Forma correcta de contar con reduce
+const totalCapitulosBien = capitulos.reduce((acumulador) => {
+  return acumulador + 1;
+}, 0);
+console.log(totalCapitulosBien);
 
 //🧠 EJERCICIO 2 – reduce para sumar datos 
 
@@ -84,8 +87,12 @@ const conteoEmociones = capitulos3.reduce((acumulador, valorEmocion) => {
 
 console.log(conteoEmociones);
 
-//✏️comentario:
-//cómo podría hacer este código más eficiente y mostrar el resultado más legible?
+// 🔧 ¿Cómo hacerlo un poco más limpio?
+const conteoEmocionesLimpio = capitulos3.reduce((acc, cap) => {
+  acc[cap.emocion] = (acc[cap.emocion] || 0) + 1;
+  return acc;
+}, {});
+
 
 //🧠 EJERCICIO 4 – reduce para generar un índice
 
@@ -132,9 +139,9 @@ console.log(indiceCapitulos);
 //🧠 PENSAMIENTO CRÍTICO (obligatorio)
 
 // ¿Por qué reduce es más flexible que map y filter?
-// porque permite la inmutabiliadad (dejar el array original sin cambios)
-// y se pueden usar condiciones, metodos,creando nuevos arrays con condciones (como filter)
-// o trasnformando todo como map
+// control total sobre cómo se acumula el resultado
+// todo en una sola pasada
+
 // ¿En qué casos no usarías reduce?
 // en casos en donde tenga que modificar varias veces un array para conseguir un resultado 
 // es decir, no lo pueda hacer con un solo acumulador

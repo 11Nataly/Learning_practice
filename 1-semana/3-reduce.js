@@ -98,26 +98,32 @@ const capitulos4 = [
 // Situación real
 // Quieres generar automáticamente el índice del diario.
 
+//usamos index para que use cada indice del arrray (ejemplo: "madrid" = indice 0)
 const indiceCapitulos = capitulos4.reduce((acum,tituloCap, index) => {
-  const titulos = tituloCap.titulo;
-
-  acum.push({
-    numCap: index + 1,
-    titulos
-  });
+  //usamos el metodo push para agregar al final en cada iteracion
+  // index+1 = tomará el número de indice (ej: 0) y le suma 1
+  // concatenamos con el punto y cada capitulo del objeto capitulos4
+  acum.push( index+1 + ". " + tituloCap.titulo);
+  //finalizamos la ejecución devolviendo el array con los capitulos
   return acum;
-}, []);
+}, []); //iniciamos con un array vacio
+
+//CÓMO FUNCIONA:
+// Iteración 0: acum = [] → añade "1. Madrid" → ["1. Madrid"]
+// Iteración 1: acum = ["1. Madrid"] → añade "2. Día triste" → ["1. Madrid", "2. Día triste"]....
 
 console.log(indiceCapitulos);
 
-
-  const numCapString = numCap.toString();
-  const titulosString = titulos.toString();
-  const indice = numCapString + "." + titulosString
-
-
-
-
+//con una solución antigua estaba creando un objeto, ahora 
+// estoy creando una nueva array y le agrego en cada iteración el capitulo
+// const indiceCapitulos = capitulos4.reduce((acum,tituloCap, index) => {
+//   acum.push({
+//     num: index + 1,
+//     ...tituloCap
+//   });
+//   return acum;
+// }, []);
+// console.log(indiceCapitulos);
 
 //✏️comentario:
 //no entiendo bien cómo funciona la sintaxis de reduce, 

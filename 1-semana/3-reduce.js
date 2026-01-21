@@ -128,3 +128,26 @@ console.log(indiceCapitulos);
 //✏️comentario:
 //no entiendo bien cómo funciona la sintaxis de reduce, 
 // no entiendo qué es el acumulador y qué valores puede tener o cómo se puede modificar
+
+//🧠 PENSAMIENTO CRÍTICO (obligatorio)
+
+// ¿Por qué reduce es más flexible que map y filter?
+// porque permite la inmutabiliadad (dejar el array original sin cambios)
+// y se pueden usar condiciones, metodos,creando nuevos arrays con condciones (como filter)
+// o trasnformando todo como map
+// ¿En qué casos no usarías reduce?
+// en casos en donde tenga que modificar varias veces un array para conseguir un resultado 
+// es decir, no lo pueda hacer con un solo acumulador
+// y en donde necesite soluciones más simples (en donde puedo usar map, filter o algun otro metodo)
+// ¿Qué ventaja tiene frente a un for clásico?
+// que puedes iterar y al mismo tiempo transformar valores, o hacer funciones más complejas
+// ademas de lo que sería un ciclo for
+// ¿Este cálculo debería hacerse en frontend o backend? ¿por qué?
+// pienso que en backend, porque son cambios de lógica y en base a datos existentes
+// y también se podría usar para frontend para mostrar datos del backend de manera organizada
+
+
+// 🧠 COMENTARIO FINAL (hábito clave)
+// Hoy entendí que reduce sirve para: contar elementos, frecuencias de un elemento o para agrupar elementos
+// Lo que más me costó fue: entender cómo usar la sintaxis de reduce y aplicar otros metodos al usar reduce
+// Mañana debo aprender: mobile first 

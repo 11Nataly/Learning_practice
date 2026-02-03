@@ -1,0 +1,109 @@
+/* 
+EJERCICIO 4 — Implementación (Flexbox consciente)
+Reglas:
+
+Solo Flexbox
+Si no sabes para qué sirve una propiedad → no la uses
+
+Mientras escribes, respóndete:
+¿Qué pasa si hay 20 libros?
+tendría que poner pagination para que sea cómodo ver cada libro en cada página
+y colocar filtros y barras de busqueda para que sea más fácil encontrar los libros
+y también, si soy backend: colocar restricciones de la longitud del titulo
+
+¿Qué pasa si el título es muy largo?
+tengo que usar overflow con hiden para que sea cómodo 
+y al abrir el libro se vería el título completo
+*/
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, sans-serif;
+}
+
+.bookshelf {
+  padding: 1rem;
+  cursor: help;
+  border: black solid;
+}
+
+ /* reemplazar GRID con flex para que aplique  */
+.books {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem; /* Espacio entre elementos flex */
+  flex-wrap: wrap-reverse;
+  border: blue solid;
+}
+
+.book {
+  padding: 1rem;
+  background-color: #a36417;
+  border-radius: 8px;
+  text-align: center;
+  color: #f0e6a9;
+  box-shadow: 5px 10px 8px #624714;
+  cursor: pointer;
+  font-weight: bold;
+  overflow-x: auto;
+}
+/* estilos al pasar el cursor */
+
+.book:hover {
+    background-color: #c78c1f;
+    transform: scale(1.05); /*un poquito más grande*/
+}
+
+/* 
+ajuste para pantallas grandes 
+*/
+
+
+@media (min-width: 768px) {
+    .books {
+    display: flex;
+    flex-direction: row;
+    }
+    .book {
+  padding: 3rem;
+}
+}
+
+
+/* ❓ Pensamiento crítico(sobre adelanto de react):
+
+¿Qué parte corresponde a tu HTML?
+las partes en donde se usan etiquetas de html,
+es decir, la estructura de los elementos.
+
+¿Qué ventaja tiene haber pensado bien el layout antes?
+que me ayuda a hacer más fácil adaptar los estilos
+a los diferentes tipos de pantallas y 
+hacer estilos más escalables 
+
+¿Flexbox cambia en React?
+No, no cambia. Los estilos pueden aplicar igual, según lo que veo.
+Mi pregunta sería si usando tailwind y cómo.
+
+
+Responde:
+
+¿Este layout sirve para:
+e-commerce?
+dashboard?
+galería?
+Sip, para todas ellas, dado que flexbox ayuda a que el tamaño
+del contenido se ajuste, sean fotos o productos.
+
+¿Qué cambiarías sin tocar React?
+lo que te dije de los estilos que no sé cómo arrelgar
+*/
+
+/*✏️comentario: en los ejercicios reemplacé grid por flexbox
+pero cómo podría usar grid y flexbox, cuál es mejor para mi modelo
+y en situaciones reales?*/
+
